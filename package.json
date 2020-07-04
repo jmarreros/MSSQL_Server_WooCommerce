@@ -1,0 +1,18 @@
+{
+  "name": "nodeSQL",
+  "version": "1.0.0",
+  "description": "Actualización de datos desde un servidor MsSQL a WooCommerce",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "WooCommerce",
+    "MsSQL"
+  ],
+  "author": "Jhon Marreros Guzmán",
+  "license": "ISC",
+  "dependencies": {
+    "mssql": "^6.2.0"
+  }
+}
