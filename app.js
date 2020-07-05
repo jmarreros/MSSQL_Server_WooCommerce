@@ -1,40 +1,26 @@
 const sql = require('mssql');
 const config = require('./conection/config');
 
-sql.connect(config, err => {
-    if(err){
-        throw err ;
+// Obtenemos los datos desde la base de datos MS SQL
+const datosSQL = async () => {
+
+    try {
+        const cn = await sql.connect(config);
+        const request = new sql.Request();
+        const result = await request.query('SELEC TOP 100 id,price, WebItem FROM Item');
+
+        cn.close();
+        return result.recordset;
     }
-    console.log("Connection Successful !");
+    catch(err){
+        throw new Error(err);
+    }
+}
 
-    new sql.Request().query('SELECT count(*) FROM Item;', (err, result) => {
-        //handle err
-        console.dir(result)
-        // This example uses callbacks strategy for getting results.
+datosSQL()
+    .then(
+        resp => console.log(resp)
+    )
+    .catch(err => {
+        console.log("Existe un error : ", err);
     });
-
-});
-
-// sql.on('error', err => {
-//     // ... error handler
-//     console.log("Sql database connection error " ,err);
-
-// })
-
-// const sql = require('mssql')
-
-// async () => {
-//     try {
-//         console.log(`1`);
-//         await sql.connect('mssql://sa:reallyStrongPwd123@localhost/RMSHQ');
-
-//         console.log(`aqui`);
-//         const result = await sql.query`SELECT count(*) FROM Item;`
-//         console.dir(result)
-
-//     } catch (err) {
-//         console.log(`Error`);
-//         console.log(err);
-//     }
-
-// }

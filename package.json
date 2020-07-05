@@ -1,5 +1,5 @@
 {
-  "name": "nodeSQL",
+  "name": "node-mssql-woocommerce",
   "version": "1.0.0",
   "description": "Actualización de datos desde un servidor MsSQL a WooCommerce",
   "main": "app.js",

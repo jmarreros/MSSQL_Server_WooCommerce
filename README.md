@@ -1,4 +1,6 @@
-## Actualización de Stock desde MSSQL Server a WooCommerce usando Nodejs
+## Actualización productos MSSQL - WooCommerce
+
+Actalización automática de precios de productos desde un servidor local MSSQL Server hacia WooCommerce usando Nodejs
 
 ### Instalación
 
